@@ -203,9 +203,7 @@ if has('gui_running')
         " 抗锯齿渲染
         "set anti
 
-        " MacVim 下的字体配置
-        "https://github.com/adobe/Source-Code-Pro
-        "set guifont=Source\ Code\ Pro:h14
+        set guifont=Consolas:h12
 
         " 半透明和窗口大小
         "set transparency=10
@@ -245,21 +243,12 @@ if has('gui_running')
         " 如果为空文件，则自动设置当前目录为桌面
         " lcd ~/Desktop/
     endif
-
-    " Under Linux/Unix etc.
-    if has("unix") && !has('gui_macvim')
-        set guifont=Courier\ 10\ Pitch\ 11
-    endif
 endif
 
 
 " =============
 " Key Shortcut
 " =============
-nmap <C-t>   :tabnew<cr>
-nmap <C-p>   :tabprevious<cr>
-nmap <C-n>   :tabnext<cr>
-nmap <C-k>   :tabclose<cr>
 nmap <C-Tab> :tabnext<cr> 
 
 " insert mode shortcut
@@ -283,7 +272,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme monokai
+        colorscheme github
     else
         set background=light
     endif
@@ -323,3 +312,15 @@ let g:NERDMenuMode = 0
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+
+" Powerline
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols = 'fancy'
+
+" delimitMate
+let delimitMate_matchpairs = "(:),[:],{:}"
+
+" vim-indent-guides
+let g:indent_guides_level=2
+let g:indent_guides_guide_size=1
