@@ -1,0 +1,325 @@
+" 关闭 vi 兼容模式
+set nocompatible
+
+" git://github.com/tpope/vim-pathogen.git
+call pathogen#infect()
+
+" git://github.com/scrooloose/nerdtree.git
+" git://github.com/Lokaltog/vim-powerline.git
+" git://github.com/nathanaelkane/vim-indent-guides.git
+" git://github.com/mattn/zencoding-vim.git
+" git://github.com/godlygeek/tabular.git
+" git://github.com/scrooloose/nerdcommenter.git
+" git://github.com/tpope/vim-surround.git
+" git://github.com/scrooloose/syntastic.git
+" git://github.com/lepture/vim-css.git
+" git://github.com/kien/ctrlp.vim.git
+" git://github.com/Raimondi/delimitMate.git
+" git://github.com/ervandew/supertab.git
+" git://github.com/endel/vim-github-colorscheme.git
+
+
+" git://github.com/pangloss/vim-javascript.git
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
+
+" 定义 <Leader> 为逗号
+let mapleader = ","
+let maplocalleader = ","
+
+" syntax
+syntax on
+filetype plugin indent on
+
+" 制表符
+set tabstop=4
+set expandtab
+set smarttab
+set shiftwidth=4
+set softtabstop=4
+
+" 行号
+set number
+
+" 上下可视行数
+set scrolloff=6
+
+" 行距
+set linespace=2
+
+" 搜索选项
+set hlsearch  " Highlight search things
+set magic     " Set magic on, for regular expressions
+
+set matchpairs=(:),{:},[:],<:>
+" 让退格，空格，上下箭头遇到行首行尾时自动移到下一行（包括insert模式）
+set whichwrap=b,s,<,>,[,]
+set showmatch " Show matching bracets when text indicator is over them
+set mat=5     " How many tenths of a second to blink
+set incsearch
+"set ignorecase
+
+" fix filename completion in VAR=/path
+set isfname-=\=
+
+" 状态栏显示目前所执行的指令
+set showcmd 
+
+" 缩进
+set autoindent
+set smartindent
+
+" 设定在任何模式下鼠标都可用
+set mouse=a
+
+" 备份和缓存
+set nobackup
+set noswapfile
+
+" 自动改变当前目录
+if has('netbeans_intg')
+    set autochdir
+endif
+
+" 自动完成
+set complete=.,w,b,k,t,i
+set completeopt=longest,menu
+
+" 插入模式下使用 <BS>、<Del> <C-W> <C-U>
+set backspace=indent,eol,start
+
+" 关联系统剪切板
+set clipboard+=unnamed
+
+" 文件格式
+set fileformats=unix,dos,mac
+
+" 永久撤销，Vim7.3 新特性
+if has('persistent_undo')
+    set undofile
+
+    " 设置撤销文件的存放的目录
+    if has("unix")
+        set undodir=/tmp/,~/tmp,~/Temp
+    else
+        set undodir=c:/windows/temp/
+    endif
+    set undolevels=1000
+    set undoreload=10000
+endif
+
+" Diff 模式的时候鼠标同步滚动 for Vim7.3
+if has('cursorbind')
+    set cursorbind
+end
+
+
+" Don't break the words with following character
+set iskeyword+=_,$,@,%,#,-
+
+" =====================
+" 多语言环境
+"    默认为 UTF-8 编码
+" =====================
+if has("multi_byte")
+    set encoding=utf-8
+    lang messages zh_CN.UTF-8
+
+    set termencoding=chinese
+    set fencs=utf-8,gbk,chinese,latin1
+    set fileencoding=gbk
+
+    source $VIMRUNTIME/delmenu.vim   
+    source $VIMRUNTIME/menu.vim  
+
+    set formatoptions+=mM
+    set nobomb " 不使用 Unicode 签名
+
+    if v:lang =~? '^\(zh\)\|\(ja\)\|\(ko\)'
+        set ambiwidth=double
+    endif
+else
+    echoerr "Sorry, this version of (g)vim was not compiled with +multi_byte"
+endif
+
+" =========
+" AutoCmd
+" =========
+if has("autocmd")
+    filetype plugin indent on
+
+    " 给各语言文件添加 Dict
+    if has('win32')
+        let s:dict_dir = $VIM.'\vimfiles\dict\'
+    else
+        let s:dict_dir = $HOME."/.vim/dict/"
+    endif
+    let s:dict_dir = "setlocal dict+=".s:dict_dir
+
+    " CSS3 语法支持
+    au BufRead,BufNewFile *.css set ft=css syntax=css3
+
+    " 增加 Objective-C 语法支持
+    au BufNewFile,BufRead,BufEnter,WinEnter,FileType *.m,*.h setf objc
+
+    " 将指定文件的换行符转换成 UNIX 格式
+    au FileType php,javascript,html,css,python,vim,vimwiki set ff=unix
+
+    " velocity
+    au BufRead,BufNewFile *.vm set ft=html syntax=velocity
+
+    " 保存编辑状态
+    au BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
+    au BufWinEnter * if expand('%') != '' && &buftype == '' | silent loadview | syntax on | endif
+endif
+
+" =========
+" GUI
+" =========
+if has('gui_running')
+    " 只显示菜单
+    set guioptions=mcr
+
+    " 高亮光标所在的行
+    set cursorline
+
+    if has("win32")
+        " Windows 兼容配置
+        source $VIMRUNTIME/mswin.vim
+
+        " f11 最大化
+        nmap <f11> :call libcallnr('fullscreen.dll', 'ToggleFullScreen', 0)<cr>
+        nmap <Leader>ff :call libcallnr('fullscreen.dll', 'ToggleFullScreen', 0)<cr>
+
+        " 字体配置
+        set guifont=Consolas:h9:cANSI
+        set guifontwide=Simsun:h10:cANSI
+    endif
+
+    " Under Mac
+    if has("gui_macvim")
+        " 抗锯齿渲染
+        "set anti
+
+        " MacVim 下的字体配置
+        "https://github.com/adobe/Source-Code-Pro
+        "set guifont=Source\ Code\ Pro:h14
+
+        " 半透明和窗口大小
+        "set transparency=10
+        "set lines=80 columns=240
+
+        " 使用 MacVim 原生的全屏幕功能
+        let s:lines=&lines
+        let s:columns=&columns
+
+        func! FullScreenEnter()
+            set lines=999 columns=999
+            set fu
+        endf
+
+        func! FullScreenLeave()
+            let &lines=s:lines
+            let &columns=s:columns
+            set nofu
+        endf
+
+        func! FullScreenToggle()
+            if &fullscreen
+                call FullScreenLeave()
+            else
+                call FullScreenEnter()
+            endif
+        endf
+
+        set guioptions+=e
+        " Mac 下，按 <Leader>ff 切换全屏
+        nmap <f11> :call FullScreenToggle()<cr>
+        nmap <Leader>ff  :call FullScreenToggle()<cr>
+
+        "Set input method off
+        set imdisable
+
+        " 如果为空文件，则自动设置当前目录为桌面
+        " lcd ~/Desktop/
+    endif
+
+    " Under Linux/Unix etc.
+    if has("unix") && !has('gui_macvim')
+        set guifont=Courier\ 10\ Pitch\ 11
+    endif
+endif
+
+
+" =============
+" Key Shortcut
+" =============
+nmap <C-t>   :tabnew<cr>
+nmap <C-p>   :tabprevious<cr>
+nmap <C-n>   :tabnext<cr>
+nmap <C-k>   :tabclose<cr>
+nmap <C-Tab> :tabnext<cr> 
+
+" insert mode shortcut
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-d> <Delete>
+
+
+" php
+" 高亮字符串里的SQL语句
+let php_sql_query=1
+" 高亮字符串里的HTML
+let php_htmlInStrings=1
+" 禁用php的短标记
+let php_noShortTags=1
+" 启用代码折叠（用于类和函数、自动）
+let php_folding=0
+
+if has('syntax')
+    if has('gui_running')
+        set background=dark
+        colorscheme monokai
+    else
+        set background=light
+    endif
+endif
+
+
+let g:user_zen_expandabbr_key = '<c-e>'
+let g:user_zen_complete_tag = 1
+let g:user_zen_settings = {
+\    'html': {
+\        'default_attributes': {
+\            'select': {'name': ''}
+\        },
+\        'expandos': {
+\            'select': 'select'
+\        },
+\        'block_elements': 'address,applet,blockquote,button,center,dd,del,dir,div,dl,dt,fieldset,form,frameset,hr,iframe,ins,isindex,li,link,map,menu,noframes,noscript,object,ol,p,pre,script,table,tbody,td,tfoot,th,thead,tr,ul,h1,h2,h3,h4,h5,h6,select',
+\        'inline_elements': 'a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,small,span,strike,strong,sub,sup,textarea,tt,u,var'
+\    }
+\}
+
+"显示tab，空格
+set list
+set listchars=tab:>-,trail:-
+
+"vim-indent-guides
+"https://github.com/nathanaelkane/vim-indent-guides
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
+" NERDTree
+nmap <Leader>dd :NERDTree<cr>
+
+" NERDComment
+let g:NERDMenuMode = 0
+
+" ctrlp
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.DS_Store  " MacOSX/Linux
+let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
