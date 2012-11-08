@@ -1,29 +1,37 @@
-" 关闭 vi 兼容模式
 set nocompatible
+set background=dark
 
 " git://github.com/tpope/vim-pathogen.git
 call pathogen#infect()
 
 " git://github.com/scrooloose/nerdtree.git
+" git://github.com/kien/ctrlp.vim.git
 " git://github.com/Lokaltog/vim-powerline.git
+" git://github.com/endel/vim-github-colorscheme.git
+" git://github.com/tpope/vim-surround.git
+"
+" git://github.com/Shougo/neocomplcache.git
+"
+" git://github.com/scrooloose/syntastic.git
+" git://github.com/scrooloose/nerdcommenter.git
+"
 " git://github.com/nathanaelkane/vim-indent-guides.git
 " git://github.com/mattn/zencoding-vim.git
 " git://github.com/godlygeek/tabular.git
-" git://github.com/scrooloose/nerdcommenter.git
-" git://github.com/tpope/vim-surround.git
-" git://github.com/scrooloose/syntastic.git
 " git://github.com/lepture/vim-css.git
-" git://github.com/kien/ctrlp.vim.git
 " git://github.com/Raimondi/delimitMate.git
-" git://github.com/ervandew/supertab.git
-" git://github.com/endel/vim-github-colorscheme.git
-
+" git://github.com/tsaleh/vim-matchit.git
+"
+"
+" git://github.com/garbas/vim-snipmate.git
+" https://github.com/tomtom/tlib_vim.git
+" https://github.com/MarcWeber/vim-addon-mw-utils.git
+" git@github.com:cnruhua/xy-snipmate-snippets.git
 
 " git://github.com/pangloss/vim-javascript.git
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
-
 
 " 定义 <Leader> 为逗号
 let mapleader = ","
@@ -151,7 +159,7 @@ if has("autocmd")
     filetype plugin indent on
 
     " 给各语言文件添加 Dict
-    if has('win32')
+    if has('win32') || has('win64')
         let s:dict_dir = $VIM.'\vimfiles\dict\'
     else
         let s:dict_dir = $HOME."/.vim/dict/"
@@ -161,18 +169,25 @@ if has("autocmd")
     " CSS3 语法支持
     au BufRead,BufNewFile *.css set ft=css syntax=css3
 
-    " 增加 Objective-C 语法支持
-    au BufNewFile,BufRead,BufEnter,WinEnter,FileType *.m,*.h setf objc
-
-    " 将指定文件的换行符转换成 UNIX 格式
-    au FileType php,javascript,html,css,python,vim,vimwiki set ff=unix
-
     " velocity
     au BufRead,BufNewFile *.vm set ft=html syntax=velocity
 
     " 保存编辑状态
     au BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
     au BufWinEnter * if expand('%') != '' && &buftype == '' | silent loadview | syntax on | endif
+endif
+
+
+if has('statusline')
+    set laststatus=2
+
+    " Broken down into easily includeable segments
+    set statusline=%<%f\    " Filename
+    set statusline+=%w%h%m%r " Options
+    set statusline+=%{fugitive#statusline()} "  Git Hotness
+    set statusline+=\ [%{&ff}/%Y]            " filetype
+    set statusline+=\ [%{getcwd()}]          " current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
 
 " =========
@@ -185,7 +200,9 @@ if has('gui_running')
     " 高亮光标所在的行
     set cursorline
 
-    if has("win32")
+    set lines=50 columns=150
+
+    if has("win32") || has('win64')
         " Windows 兼容配置
         source $VIMRUNTIME/mswin.vim
 
@@ -207,7 +224,6 @@ if has('gui_running')
 
         " 半透明和窗口大小
         "set transparency=10
-        "set lines=80 columns=240
 
         " 使用 MacVim 原生的全屏幕功能
         let s:lines=&lines
@@ -249,7 +265,13 @@ endif
 " =============
 " Key Shortcut
 " =============
+
+nmap <C-t>   :tabnew<cr>
+nmap <C-p>   :tabprevious<cr>
+nmap <C-n>   :tabnext<cr>
+nmap <C-k>   :tabclose<cr>
 nmap <C-Tab> :tabnext<cr> 
+
 
 " insert mode shortcut
 inoremap <C-h> <Left>
@@ -278,7 +300,6 @@ if has('syntax')
     endif
 endif
 
-
 let g:user_zen_expandabbr_key = '<c-e>'
 let g:user_zen_complete_tag = 1
 let g:user_zen_settings = {
@@ -294,17 +315,22 @@ let g:user_zen_settings = {
 \    }
 \}
 
-"显示tab，空格
+" 显示tab，空格
 set list
 set listchars=tab:>-,trail:-
 
-"vim-indent-guides
-"https://github.com/nathanaelkane/vim-indent-guides
+" vim-indent-guides
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " NERDTree
 nmap <Leader>dd :NERDTree<cr>
+let NERDTreeShowBookmarks=1
+let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+let NERDTreeChDirMode=0
+let NERDTreeQuitOnOpen=1
+let NERDTreeShowHidden=1
+let NERDTreeKeepTreeInNewTab=1
 
 " NERDComment
 let g:NERDMenuMode = 0
@@ -312,6 +338,8 @@ let g:NERDMenuMode = 0
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
+let g:ctrlp_working_path_mode = 2
+nmap <Leader>mr :CtrlPMRU<cr>
 
 " Powerline
 set laststatus=2
@@ -324,3 +352,16 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 " vim-indent-guides
 let g:indent_guides_level=2
 let g:indent_guides_guide_size=1
+
+" NeoComplCache
+let g:neocomplcache_enable_at_startup=1
+let g:neoComplcache_disableautocomplete=1
+"let g:neocomplcache_enable_underbar_completion = 1
+"let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_smart_case=1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+set completeopt-=preview
+
+" snipMate
+" 已知bug：php的会读取到js的，暂时移除php的
