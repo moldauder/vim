@@ -21,12 +21,6 @@ call pathogen#infect()
 " git://github.com/lepture/vim-css.git
 " git://github.com/Raimondi/delimitMate.git
 " git://github.com/tsaleh/vim-matchit.git
-"
-"
-" git://github.com/garbas/vim-snipmate.git
-" https://github.com/tomtom/tlib_vim.git
-" https://github.com/MarcWeber/vim-addon-mw-utils.git
-" git@github.com:cnruhua/xy-snipmate-snippets.git
 
 " git://github.com/pangloss/vim-javascript.git
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -262,10 +256,6 @@ endif
 " =============
 " Key Shortcut
 " =============
-
-nmap <C-t>   :tabnew<cr>
-nmap <C-p>   :tabprevious<cr>
-nmap <C-n>   :tabnext<cr>
 nmap <C-Tab> :tabnext<cr> 
 
 
@@ -352,12 +342,34 @@ let g:indent_guides_guide_size=1
 " NeoComplCache
 let g:neocomplcache_enable_at_startup=1
 let g:neoComplcache_disableautocomplete=1
-"let g:neocomplcache_enable_underbar_completion = 1
-"let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-set completeopt-=preview
 
-" snipMate
-" 已知bug：php的会读取到js的，暂时移除php的
+imap <C-k>     <Plug>(neocomplcache_snippets_expand)
+smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplcache_omni_patterns')
+  let g:neocomplcache_omni_patterns = {}
+endif
+let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
