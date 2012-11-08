@@ -51,8 +51,11 @@ set softtabstop=4
 " 行号
 set number
 
+" always report number of lines changed
+set report=0
+
 " 上下可视行数
-set scrolloff=6
+set scrolloff=3
 
 " 行距
 set linespace=2
@@ -61,7 +64,9 @@ set linespace=2
 set hlsearch  " Highlight search things
 set magic     " Set magic on, for regular expressions
 
+set matchtime=2
 set matchpairs=(:),{:},[:],<:>
+
 " 让退格，空格，上下箭头遇到行首行尾时自动移到下一行（包括insert模式）
 set whichwrap=b,s,<,>,[,]
 set showmatch " Show matching bracets when text indicator is over them
@@ -157,14 +162,6 @@ endif
 " =========
 if has("autocmd")
     filetype plugin indent on
-
-    " 给各语言文件添加 Dict
-    if has('win32') || has('win64')
-        let s:dict_dir = $VIM.'\vimfiles\dict\'
-    else
-        let s:dict_dir = $HOME."/.vim/dict/"
-    endif
-    let s:dict_dir = "setlocal dict+=".s:dict_dir
 
     " CSS3 语法支持
     au BufRead,BufNewFile *.css set ft=css syntax=css3
@@ -269,7 +266,6 @@ endif
 nmap <C-t>   :tabnew<cr>
 nmap <C-p>   :tabprevious<cr>
 nmap <C-n>   :tabnext<cr>
-nmap <C-k>   :tabclose<cr>
 nmap <C-Tab> :tabnext<cr> 
 
 
