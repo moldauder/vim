@@ -136,7 +136,7 @@ if has("multi_byte")
 
     set termencoding=chinese
     set fencs=utf-8,gbk,chinese,latin1
-    set fileencoding=gbk
+    set fileencoding=utf-8
 
     source $VIMRUNTIME/delmenu.vim   
     source $VIMRUNTIME/menu.vim  
@@ -286,21 +286,6 @@ if has('syntax')
     endif
 endif
 
-let g:user_zen_expandabbr_key = '<c-e>'
-let g:user_zen_complete_tag = 1
-let g:user_zen_settings = {
-\    'html': {
-\        'default_attributes': {
-\            'select': {'name': ''}
-\        },
-\        'expandos': {
-\            'select': 'select'
-\        },
-\        'block_elements': 'address,applet,blockquote,button,center,dd,del,dir,div,dl,dt,fieldset,form,frameset,hr,iframe,ins,isindex,li,link,map,menu,noframes,noscript,object,ol,p,pre,script,table,tbody,td,tfoot,th,thead,tr,ul,h1,h2,h3,h4,h5,h6,select',
-\        'inline_elements': 'a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,small,span,strike,strong,sub,sup,textarea,tt,u,var'
-\    }
-\}
-
 " 显示tab，空格
 set list
 set listchars=tab:>-,trail:-
@@ -348,18 +333,16 @@ let g:neocomplcache_enable_smart_case=1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-
 " <TAB>: completion.
+" pumvisible 如果弹出菜单可见返回非0，否则返回0
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+"close_popup 补全后关闭弹出框
 inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+"cancel_popup 直接关闭弹出框---与zencoding冲突
+"inoremap <expr><C-e>  neocomplcache#cancel_popup()
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -373,3 +356,21 @@ if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+
+" zencoding
+let g:user_zen_expandabbr_key = '<C-e>'
+let g:user_zen_complete_tag = 1
+let g:user_zen_settings = {
+\    'html': {
+\        'default_attributes': {
+\            'select': {'name': ''}
+\        },
+\        'expandos': {
+\            'select': 'select'
+\        },
+\        'block_elements': 'address,applet,blockquote,button,center,dd,del,dir,div,dl,dt,fieldset,form,frameset,hr,iframe,ins,isindex,li,link,map,menu,noframes,noscript,object,ol,p,pre,script,table,tbody,td,tfoot,th,thead,tr,ul,h1,h2,h3,h4,h5,h6,select',
+\        'inline_elements': 'a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,small,span,strike,strong,sub,sup,textarea,tt,u,var'
+\    }
+\}
+
+
