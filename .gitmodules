@@ -1,0 +1,48 @@
+[submodule "vimfiles/bundle/sudo.vim"]
+	path = vimfiles/bundle/sudo.vim
+	url = git://github.com/vim-scripts/sudo.vim.git
+[submodule "vimfiles/bundle/ctrlp.vim"]
+	path = vimfiles/bundle/ctrlp.vim
+	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vimfiles/bundle/delimitMate"]
+	path = vimfiles/bundle/delimitMate
+	url = git://github.com/Raimondi/delimitMate.git
+[submodule "vimfiles/bundle/neocomplcache"]
+	path = vimfiles/bundle/neocomplcache
+	url = git://github.com/Shougo/neocomplcache.git
+[submodule "vimfiles/bundle/nerdcommenter"]
+	path = vimfiles/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vimfiles/bundle/nerdtree"]
+	path = vimfiles/bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "vimfiles/bundle/syntastic"]
+	path = vimfiles/bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git
+[submodule "vimfiles/bundle/tabular"]
+	path = vimfiles/bundle/tabular
+	url = git://github.com/godlygeek/tabular.git
+[submodule "vimfiles/bundle/vim-css"]
+	path = vimfiles/bundle/vim-css
+	url = git://github.com/lepture/vim-css.git
+[submodule "vimfiles/bundle/vim-github-colorscheme"]
+	path = vimfiles/bundle/vim-github-colorscheme
+	url = git://github.com/endel/vim-github-colorscheme.git
+[submodule "vimfiles/bundle/vim-indent-guides"]
+	path = vimfiles/bundle/vim-indent-guides
+	url = git://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "vimfiles/bundle/vim-javascript"]
+	path = vimfiles/bundle/vim-javascript
+	url = git://github.com/pangloss/vim-javascript.git
+[submodule "vimfiles/bundle/vim-matchit"]
+	path = vimfiles/bundle/vim-matchit
+	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "vimfiles/bundle/vim-powerline"]
+	path = vimfiles/bundle/vim-powerline
+	url = git://github.com/Lokaltog/vim-powerline.git
+[submodule "vimfiles/bundle/vim-surround"]
+	path = vimfiles/bundle/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule "vimfiles/bundle/zencoding-vim"]
+	path = vimfiles/bundle/zencoding-vim
+	url = git://github.com/mattn/zencoding-vim.git
