@@ -78,6 +78,9 @@ set showcmd
 set autoindent
 set smartindent
 
+" 折叠
+set foldmethod=market
+
 " 设定在任何模式下鼠标都可用
 set mouse=a
 
@@ -211,7 +214,7 @@ if has('gui_running')
         " 抗锯齿渲染
         "set anti
 
-        set guifont=Monaco:h13
+        set guifont=Consolas:h12
 
         " 半透明和窗口大小
         "set transparency=10
