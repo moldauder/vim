@@ -7,9 +7,8 @@ call pathogen#infect()
 " git://github.com/scrooloose/nerdtree.git
 " git://github.com/kien/ctrlp.vim.git
 " git://github.com/Lokaltog/vim-powerline.git
-" git://github.com/endel/vim-github-colorscheme.git
 " git://github.com/tpope/vim-surround.git
-"
+" git://github.com/Arkham/vim-tango.git
 " git://github.com/Shougo/neocomplcache.git
 "
 " git://github.com/scrooloose/syntastic.git
@@ -77,9 +76,6 @@ set showcmd
 " 缩进
 set autoindent
 set smartindent
-
-" 折叠
-set foldmethod=market
 
 " 设定在任何模式下鼠标都可用
 set mouse=a
@@ -205,8 +201,8 @@ if has('gui_running')
         nmap <Leader>ff :call libcallnr('fullscreen.dll', 'ToggleFullScreen', 0)<cr>
 
         " 字体配置
-        set guifont=Consolas:h9:cANSI
-        set guifontwide=Simsun:h10:cANSI
+        set guifont=Consolas:h11:cANSI
+        set guifontwide=Simsun:h11:cANSI
     endif
 
     " Under Mac
@@ -283,7 +279,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme github
+        colorscheme tango
     else
         set background=light
     endif
