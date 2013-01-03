@@ -25,9 +25,6 @@
 [submodule "vimfiles/bundle/vim-css"]
 	path = vimfiles/bundle/vim-css
 	url = git://github.com/lepture/vim-css.git
-[submodule "vimfiles/bundle/vim-github-colorscheme"]
-	path = vimfiles/bundle/vim-github-colorscheme
-	url = git://github.com/endel/vim-github-colorscheme.git
 [submodule "vimfiles/bundle/vim-indent-guides"]
 	path = vimfiles/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
@@ -46,6 +43,6 @@
 [submodule "vimfiles/bundle/zencoding-vim"]
 	path = vimfiles/bundle/zencoding-vim
 	url = git://github.com/mattn/zencoding-vim.git
-[submodule "vimfiles/bundle/vim-tango"]
-	path = vimfiles/bundle/vim-tango
-	url = git://github.com/Arkham/vim-tango.git
+[submodule "vimfiles/bundle/vim-colors-solarized"]
+	path = vimfiles/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

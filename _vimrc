@@ -210,7 +210,7 @@ if has('gui_running')
         " 抗锯齿渲染
         "set anti
 
-        set guifont=Consolas:h12
+        set guifont=Consolas:h13
 
         " 半透明和窗口大小
         "set transparency=10
@@ -279,7 +279,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme tango
+        colorscheme solarized
     else
         set background=light
     endif
