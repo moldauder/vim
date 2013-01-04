@@ -1,6 +1,3 @@
-[submodule "vimfiles/bundle/sudo.vim"]
-	path = vimfiles/bundle/sudo.vim
-	url = git://github.com/vim-scripts/sudo.vim.git
 [submodule "vimfiles/bundle/ctrlp.vim"]
 	path = vimfiles/bundle/ctrlp.vim
 	url = git://github.com/kien/ctrlp.vim.git

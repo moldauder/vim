@@ -4,24 +4,6 @@ set background=dark
 " git://github.com/tpope/vim-pathogen.git
 call pathogen#infect()
 
-" git://github.com/scrooloose/nerdtree.git
-" git://github.com/kien/ctrlp.vim.git
-" git://github.com/Lokaltog/vim-powerline.git
-" git://github.com/tpope/vim-surround.git
-" git://github.com/Arkham/vim-tango.git
-" git://github.com/Shougo/neocomplcache.git
-"
-" git://github.com/scrooloose/syntastic.git
-" git://github.com/scrooloose/nerdcommenter.git
-"
-" git://github.com/nathanaelkane/vim-indent-guides.git
-" git://github.com/mattn/zencoding-vim.git
-" git://github.com/godlygeek/tabular.git
-" git://github.com/lepture/vim-css.git
-" git://github.com/Raimondi/delimitMate.git
-" git://github.com/tsaleh/vim-matchit.git
-
-" git://github.com/pangloss/vim-javascript.git
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
