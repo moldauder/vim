@@ -192,7 +192,7 @@ if has('gui_running')
         " 抗锯齿渲染
         set anti
 
-        set guifont=Monaco:h10
+        set guifont=Monaco:h11
 
         " 半透明和窗口大小
         "set transparency=10
