@@ -33,7 +33,7 @@ set report=0
 set scrolloff=3
 
 " 行距
-set linespace=2
+set linespace=1
 
 " 搜索选项
 set hlsearch  " Highlight search things
@@ -53,7 +53,7 @@ set incsearch
 set isfname-=\=
 
 " 状态栏显示目前所执行的指令
-set showcmd 
+set showcmd
 
 " 缩进
 set autoindent
@@ -119,8 +119,8 @@ if has("multi_byte")
     set fencs=utf-8,gbk,chinese,latin1
     set fileencoding=utf-8
 
-    source $VIMRUNTIME/delmenu.vim   
-    source $VIMRUNTIME/menu.vim  
+    source $VIMRUNTIME/delmenu.vim
+    source $VIMRUNTIME/menu.vim
 
     set formatoptions+=mM
     set nobomb " 不使用 Unicode 签名
@@ -183,16 +183,16 @@ if has('gui_running')
         nmap <Leader>ff :call libcallnr('fullscreen.dll', 'ToggleFullScreen', 0)<cr>
 
         " 字体配置
-        set guifont=Consolas:h11:cANSI
+        set guifont=Monaco:h9:cANSI
         set guifontwide=Simsun:h11:cANSI
     endif
 
     " Under Mac
     if has("gui_macvim")
         " 抗锯齿渲染
-        "set anti
+        set anti
 
-        set guifont=Consolas:h13
+        set guifont=Monaco:h10
 
         " 半透明和窗口大小
         "set transparency=10
@@ -227,18 +227,13 @@ if has('gui_running')
 
         "Set input method off
         set imdisable
-
-        " 如果为空文件，则自动设置当前目录为桌面
-        " lcd ~/Desktop/
     endif
 endif
-
 
 " =============
 " Key Shortcut
 " =============
-nmap <C-Tab> :tabnext<cr> 
-
+nmap <C-Tab> :tabnext<cr>
 
 " insert mode shortcut
 inoremap <C-h> <Left>
@@ -246,7 +241,6 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
 inoremap <C-d> <Delete>
-
 
 " php
 " 高亮字符串里的SQL语句
@@ -270,10 +264,6 @@ endif
 " 显示tab，空格
 set list
 set listchars=tab:>-,trail:-
-
-" vim-indent-guides
-let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
 
 " NERDTree
 nmap <Leader>dd :NERDTree<cr>
@@ -303,6 +293,7 @@ let delimitMate_matchpairs = "(:),[:],{:}"
 
 " vim-indent-guides
 let g:indent_guides_level=2
+let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
 
 " NeoComplCache
@@ -353,5 +344,3 @@ let g:user_zen_settings = {
 \        'inline_elements': 'a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,small,span,strike,strong,sub,sup,textarea,tt,u,var'
 \    }
 \}
-
-
