@@ -255,7 +255,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme solarized
+        colorscheme ir_black
     else
         set background=light
     endif

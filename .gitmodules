@@ -46,3 +46,6 @@
 [submodule "vimfiles/bundle/zencoding"]
 	path = vimfiles/bundle/zencoding
 	url = https://github.com/penapena/zencoding-vim.git
+[submodule "vimfiles/bundle/vim-irblack"]
+	path = vimfiles/bundle/vim-irblack
+	url = https://github.com/imeos/vim-irblack.git
