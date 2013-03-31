@@ -13,9 +13,6 @@
 [submodule "vimfiles/bundle/nerdtree"]
 	path = vimfiles/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
-[submodule "vimfiles/bundle/syntastic"]
-	path = vimfiles/bundle/syntastic
-	url = git://github.com/scrooloose/syntastic.git
 [submodule "vimfiles/bundle/tabular"]
 	path = vimfiles/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
@@ -37,15 +34,12 @@
 [submodule "vimfiles/bundle/vim-surround"]
 	path = vimfiles/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vimfiles/bundle/vim-colors-solarized"]
-	path = vimfiles/bundle/vim-colors-solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vimfiles/bundle/ack.vim"]
 	path = vimfiles/bundle/ack.vim
 	url = https://github.com/mileszs/ack.vim.git
 [submodule "vimfiles/bundle/zencoding"]
 	path = vimfiles/bundle/zencoding
 	url = https://github.com/penapena/zencoding-vim.git
-[submodule "vimfiles/bundle/vim-irblack"]
-	path = vimfiles/bundle/vim-irblack
-	url = https://github.com/imeos/vim-irblack.git
+[submodule "vimfiles/bundle/vim-tango"]
+	path = vimfiles/bundle/vim-tango
+	url = git://github.com/Arkham/vim-tango.git

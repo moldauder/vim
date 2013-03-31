@@ -84,6 +84,10 @@ set clipboard+=unnamed
 " 文件格式
 set fileformats=unix,dos,mac
 
+" 不要自动换行
+"set nowrap
+set wrap
+
 " 永久撤销，Vim7.3 新特性
 if has('persistent_undo')
     set undofile
@@ -113,9 +117,9 @@ set iskeyword+=_,$,@,%,#,-
 " =====================
 if has("multi_byte")
     set encoding=utf-8
-    lang messages zh_CN.UTF-8
+    lang messages zh_CN.utf-8
 
-    set termencoding=chinese
+    set termencoding=utf-8
     set fencs=utf-8,gbk,chinese,latin1
     set fileencoding=utf-8
 
@@ -156,8 +160,8 @@ if has('statusline')
     " Broken down into easily includeable segments
     set statusline=%<%f\    " Filename
     set statusline+=%w%h%m%r " Options
-    set statusline+=%{fugitive#statusline()} "  Git Hotness
     set statusline+=\ [%{&ff}/%Y]            " filetype
+    set statusline+=\ [%{&fenc}]            " fileencoding
     set statusline+=\ [%{getcwd()}]          " current dir
     set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
 endif
@@ -192,7 +196,10 @@ if has('gui_running')
         " 抗锯齿渲染
         set anti
 
-        set guifont=Monaco:h11
+        set guifont=Monaco:h13
+        "set guifont=Courier\ New:h14
+        "set guifont=Courier:h13
+        "set guifont=Consolas:h13
 
         " 半透明和窗口大小
         "set transparency=10
@@ -255,7 +262,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme ir_black
+        colorscheme desert
     else
         set background=light
     endif
@@ -282,14 +289,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
 let g:ctrlp_working_path_mode = 2
 nmap <Leader>mr :CtrlPMRU<cr>
-
-" Powerline
-set laststatus=2
-set t_Co=256
-let g:Powerline_symbols = 'fancy'
-
-" delimitMate
-let delimitMate_matchpairs = "(:),[:],{:}"
 
 " vim-indent-guides
 let g:indent_guides_level=2
