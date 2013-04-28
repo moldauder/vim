@@ -43,3 +43,6 @@
 [submodule "vimfiles/bundle/vim-tango"]
 	path = vimfiles/bundle/vim-tango
 	url = git://github.com/Arkham/vim-tango.git
+[submodule "vimfiles/bundle/vimwiki"]
+	path = vimfiles/bundle/vimwiki
+	url = git://github.com/vim-scripts/vimwiki.git

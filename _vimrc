@@ -33,7 +33,7 @@ set report=0
 set scrolloff=3
 
 " 行距
-set linespace=1
+set linespace=4
 
 " 搜索选项
 set hlsearch  " Highlight search things
@@ -196,10 +196,11 @@ if has('gui_running')
         " 抗锯齿渲染
         set anti
 
-        set guifont=Monaco:h13
+        "set guifont=Monaco:h10
         "set guifont=Courier\ New:h14
         "set guifont=Courier:h13
         "set guifont=Consolas:h13
+        set guifont=Menlo\ Regular:h11
 
         " 半透明和窗口大小
         "set transparency=10
