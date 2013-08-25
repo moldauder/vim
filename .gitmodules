@@ -16,9 +16,6 @@
 [submodule "vimfiles/bundle/tabular"]
 	path = vimfiles/bundle/tabular
 	url = git://github.com/godlygeek/tabular.git
-[submodule "vimfiles/bundle/vim-css"]
-	path = vimfiles/bundle/vim-css
-	url = git://github.com/lepture/vim-css.git
 [submodule "vimfiles/bundle/vim-indent-guides"]
 	path = vimfiles/bundle/vim-indent-guides
 	url = git://github.com/nathanaelkane/vim-indent-guides.git
@@ -34,15 +31,12 @@
 [submodule "vimfiles/bundle/vim-surround"]
 	path = vimfiles/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vimfiles/bundle/ack.vim"]
-	path = vimfiles/bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "vimfiles/bundle/zencoding"]
 	path = vimfiles/bundle/zencoding
 	url = https://github.com/penapena/zencoding-vim.git
-[submodule "vimfiles/bundle/vim-tango"]
-	path = vimfiles/bundle/vim-tango
-	url = git://github.com/Arkham/vim-tango.git
-[submodule "vimfiles/bundle/vimwiki"]
-	path = vimfiles/bundle/vimwiki
-	url = git://github.com/vim-scripts/vimwiki.git
+[submodule "vimfiles/bundle/vim-markdown"]
+	path = vimfiles/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vimfiles/bundle/ag"]
+	path = vimfiles/bundle/ag
+	url = https://github.com/rking/ag.vim

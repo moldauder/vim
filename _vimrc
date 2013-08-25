@@ -67,9 +67,7 @@ set nobackup
 set noswapfile
 
 " 自动改变当前目录
-if has('netbeans_intg')
-    set autochdir
-endif
+set autochdir
 
 " 自动完成
 set complete=.,w,b,k,t,i
@@ -148,6 +146,12 @@ if has("autocmd")
     " velocity
     au BufRead,BufNewFile *.vm set ft=html syntax=velocity
 
+    " ejs
+    au BufRead,BufNewFile *.ejs set ft=html syntax=html
+
+    " markdown
+    au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+
     " 保存编辑状态
     au BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
     au BufWinEnter * if expand('%') != '' && &buftype == '' | silent loadview | syntax on | endif
@@ -176,7 +180,7 @@ if has('gui_running')
     " 高亮光标所在的行
     set cursorline
 
-    set lines=50 columns=150
+    set lines=30 columns=100
 
     if has("win32") || has('win64')
         " Windows 兼容配置
@@ -196,11 +200,12 @@ if has('gui_running')
         " 抗锯齿渲染
         set anti
 
-        "set guifont=Monaco:h10
-        "set guifont=Courier\ New:h14
+        "set guifont=Monaco:h11
+        "set guifont=Courier\ New:h13
         "set guifont=Courier:h13
-        "set guifont=Consolas:h13
-        set guifont=Menlo\ Regular:h11
+        set guifont=Consolas:h12
+        "set guifont=Menlo\ Regular:h13
+        "set guifont=Andale\ Mono:h14
 
         " 半透明和窗口大小
         "set transparency=10
@@ -263,7 +268,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme desert
+        colorscheme evening
     else
         set background=light
     endif
