@@ -31,12 +31,12 @@
 [submodule "vimfiles/bundle/vim-surround"]
 	path = vimfiles/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
-[submodule "vimfiles/bundle/zencoding"]
-	path = vimfiles/bundle/zencoding
-	url = https://github.com/penapena/zencoding-vim.git
-[submodule "vimfiles/bundle/vim-markdown"]
-	path = vimfiles/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
 [submodule "vimfiles/bundle/ag"]
 	path = vimfiles/bundle/ag
 	url = https://github.com/rking/ag.vim
+[submodule "vimfiles/bundle/emmet"]
+	path = vimfiles/bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
+[submodule "vimfiles/bundle/markdown"]
+	path = vimfiles/bundle/markdown
+	url = https://github.com/plasticboy/vim-markdown.git

@@ -150,7 +150,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.ejs set ft=html syntax=html
 
     " markdown
-    au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn}   set filetype=mkd
+    au BufRead,BufNewFile *.{md,mdown,mkd,mkdn,markdown,mdwn} set filetype=mkd
 
     " 保存编辑状态
     au BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
@@ -201,9 +201,9 @@ if has('gui_running')
         set anti
 
         "set guifont=Monaco:h11
-        "set guifont=Courier\ New:h13
-        "set guifont=Courier:h13
-        set guifont=Consolas:h12
+        "set guifont=Courier\ New:h12
+        set guifont=Courier:h13
+        "set guifont=Consolas:h14
         "set guifont=Menlo\ Regular:h13
         "set guifont=Andale\ Mono:h14
 
@@ -292,8 +292,8 @@ let g:NERDMenuMode = 0
 
 " ctrlp
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.DS_Store  " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\.git$\|\.hg$\|\.svn$'
-let g:ctrlp_working_path_mode = 2
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|build|node_modules)$'
+let g:ctrlp_working_path_mode = 'ra'
 nmap <Leader>mr :CtrlPMRU<cr>
 
 " vim-indent-guides
@@ -334,18 +334,5 @@ if !exists('g:neocomplcache_omni_patterns')
 endif
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 
-" zencoding
-let g:user_zen_expandabbr_key = '<C-e>'
-let g:user_zen_complete_tag = 1
-let g:user_zen_settings = {
-\    'html': {
-\        'default_attributes': {
-\            'select': {'name': ''}
-\        },
-\        'expandos': {
-\            'select': 'select'
-\        },
-\        'block_elements': 'address,applet,blockquote,button,center,dd,del,dir,div,dl,dt,fieldset,form,frameset,hr,iframe,ins,isindex,li,link,map,menu,noframes,noscript,object,ol,p,pre,script,table,tbody,td,tfoot,th,thead,tr,ul,h1,h2,h3,h4,h5,h6,select',
-\        'inline_elements': 'a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,small,span,strike,strong,sub,sup,textarea,tt,u,var'
-\    }
-\}
+" markdown
+let g:vim_markdown_folding_disabled=0
