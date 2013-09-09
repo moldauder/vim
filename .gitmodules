@@ -4,9 +4,6 @@
 [submodule "vimfiles/bundle/delimitMate"]
 	path = vimfiles/bundle/delimitMate
 	url = git://github.com/Raimondi/delimitMate.git
-[submodule "vimfiles/bundle/neocomplcache"]
-	path = vimfiles/bundle/neocomplcache
-	url = git://github.com/Shougo/neocomplcache.git
 [submodule "vimfiles/bundle/nerdcommenter"]
 	path = vimfiles/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
@@ -40,3 +37,6 @@
 [submodule "vimfiles/bundle/markdown"]
 	path = vimfiles/bundle/markdown
 	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vimfiles/bundle/neocomplete"]
+	path = vimfiles/bundle/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
