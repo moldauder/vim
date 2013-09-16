@@ -202,7 +202,8 @@ if has('gui_running')
         set anti
 
         set guifont=Monaco:h13
-        "set guifont=Courier\ New:h12
+        set guifontwide=Hiragino\ Sans\ GB\ W3:h13
+        "set guifont=Courier\ New:h13
         "set guifont=Courier:h13
         "set guifont=Consolas:h14
         "set guifont=Menlo\ Regular:h13
@@ -269,7 +270,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme evening
+        colorscheme gummybears
     else
         set background=light
     endif
@@ -337,9 +338,9 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#smart_close_popup() . "\<CR>"
+  "return neocomplete#smart_close_popup() . "\<CR>"
   " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  return pumvisible() ? neocomplete#close_popup() : "\<CR>"
 endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

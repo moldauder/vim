@@ -40,3 +40,6 @@
 [submodule "vimfiles/bundle/neocomplete"]
 	path = vimfiles/bundle/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "vimfiles/bundle/color-gummybears"]
+	path = vimfiles/bundle/color-gummybears
+	url = https://github.com/jelera/vim-gummybears-colorscheme.git
