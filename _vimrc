@@ -270,7 +270,7 @@ let php_folding=0
 if has('syntax')
     if has('gui_running')
         set background=dark
-        colorscheme gummybears
+        colorscheme gruvbox
     else
         set background=light
     endif
