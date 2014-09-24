@@ -265,7 +265,7 @@ let php_noShortTags=1
 " 启用代码折叠（用于类和函数、自动）
 let php_folding=0
 
-set background=dark
+set background=light
 colorscheme macvim
 
 " 显示tab，空格
@@ -288,7 +288,7 @@ let g:NERDMenuMode = 0
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pyc,.DS_Store  " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|build|node_modules)$'
 let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
+"let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard', 'find %s -type f']
 let g:ctrlp_use_caching = 0
 nmap <Leader>mr :CtrlPMRU<cr>
 
