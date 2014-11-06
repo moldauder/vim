@@ -11,7 +11,11 @@ Plug 'godlygeek/tabular'
 Plug 'pangloss/vim-javascript'
 Plug 'edsono/vim-matchit'
 Plug 'tpope/vim-surround'
+"Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'marijnh/tern_for_vim', { 'do': 'npm install' }
+Plug 'rking/ag.vim'
+Plug 'altercation/vim-colors-solarized'
 
 call plug#end()
 
@@ -170,6 +174,9 @@ if has("autocmd")
     " ruby
     au BufRead,BufNewFile *.{rb,yml} set tabstop=2 shiftwidth=2 softtabstop=2
 
+    " soy
+    au BufRead,BufNewFile *.soy set filetype=html syntax=html
+
     " 保存编辑状态
     au BufWinLeave * if expand('%') != '' && &buftype == '' | mkview | endif
     au BufWinEnter * if expand('%') != '' && &buftype == '' | silent loadview | syntax on | endif
@@ -196,7 +203,7 @@ if has('gui_running')
     set guioptions=mcr
 
     " 高亮光标所在的行
-    set cursorline
+    set nocursorline
 
     set lines=30 columns=110
 
@@ -205,7 +212,7 @@ if has('gui_running')
         " 抗锯齿渲染
         set anti
 
-        set guifont=InputMono:h13
+        set guifont=Menlo:h14
 
         " 半透明和窗口大小
         "set transparency=5
@@ -265,8 +272,15 @@ let php_noShortTags=1
 " 启用代码折叠（用于类和函数、自动）
 let php_folding=0
 
-set background=light
-colorscheme macvim
+set background=dark
+
+if strftime("%H") < 18 && strftime("%H") > 2
+    colorscheme slate  
+else
+    " 晚上
+    colorscheme zenburn
+endif
+
 
 " 显示tab，空格
 set nolist
